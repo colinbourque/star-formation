@@ -224,7 +224,7 @@ for i in range(1,len(mpars[0])):
         
     ## write the stars.inp file
     pstar = [0,0,0]
-    with open(f'{indir}/stars.{i:02n}.inp','w+') as f:
+    with open(f'{indir}/stars.{i:03n}.inp','w+') as f:
         f.write('2\n')
         f.write('1 %d\n\n'%(nlam))
         f.write('%13.6e %13.6e %13.6e %13.6e %13.6e\n\n'%(rstar*rs,mstar*ms,pstar[0],pstar[1],pstar[2]))
@@ -233,7 +233,7 @@ for i in range(1,len(mpars[0])):
         f.write('\n%13.6e\n'%(-tstar))
 
     ## write the grid file
-    with open(f'{indir}/amr_grid.{i:02n}.inp','w+') as f:
+    with open(f'{indir}/amr_grid.{i:03n}.inp','w+') as f:
         f.write('1\n')                       # iformat
         f.write('0\n')                       # AMR grid style  (0=regular grid, no AMR)
         f.write('100\n')                     # Coordinate system
@@ -248,7 +248,7 @@ for i in range(1,len(mpars[0])):
             f.write('%13.6e\n'%(value))      # Z coordinates (cell walls)
 
     ## write the density file
-    with open(f'{indir}/dust_density.{i:02n}.inp','w+') as f:
+    with open(f'{indir}/dust_density.{i:03n}.inp','w+') as f:
         f.write('1\n')                       # Format number
         f.write('%d\n'%(nr*nt*nphi))           # Nr of cells
         f.write('1\n')                       # Nr of dust species
