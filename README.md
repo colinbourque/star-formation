@@ -5,4 +5,4 @@ Files, scripts, and assorted data used in the radiative transfer star formation 
 
 /scripts/ will contain individual .py or .sh files generated locally, moved off-system for running simulations
 
-/input_data/ will contain files describing the inputs to the simulations
+/model_parameters/ will contain files describing the inputs to the simulations
