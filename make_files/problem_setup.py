@@ -78,10 +78,11 @@ with open(f'{simdir}/model{modelnumber:02n}/AUX/external_source.inp', 'w+') as f
     for i in range(len(wavs)):
         f.write(f'{wavs[i]:.6e}\n')
     for i in range(len(wavs)):
-        if wavs[i] >= 400:
-            f.write(f'{zero:.6e}\n')
-        elif wavs[i] < 400:
-            f.write(f'{intens[i]:.6e}\n')
+        f.write(f'{intens[i]:.6e}\n')
+        # if wavs[i] >= 400:
+        #     f.write(f'{zero:.6e}\n')
+        # elif wavs[i] < 400:
+        #     f.write(f'{intens[i]:.6e}\n')
 
 
 ## star is positioned at origin
