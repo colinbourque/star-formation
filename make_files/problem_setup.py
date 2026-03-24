@@ -131,7 +131,8 @@ alpha = 2.25
 rho0 = 1e-16
 
 #### CREATE INPUT DATA
-mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1).T
+mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1) 
+mpars = mpars[~np.isnan(mpars).any(axis=1)].T ## remove entries with nan values
 
 v_collapse = 0 
 r_out = np.max([mpars[7][0], mpars[10][0]])*au ## starts the outer radius as being the greater of the disk or core
