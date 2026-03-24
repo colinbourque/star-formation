@@ -39,9 +39,9 @@ nphot = 10000000
 with open(f'{simdir}/model{modelnumber:02n}/AUX/radmc3d.inp','w+') as f:
     f.write('nphot = %d\n'%(nphot))
     f.write('scattering_mode_max = 1\n')   # Put this to 1 for isotropic scattering
-    f.write('istar_sphere = 1\n')
+    f.write('istar_sphere = 0\n')          ## point-source stars matches 2d code
     f.write('iranfreqmode = 1\n')
-    f.write('modified_random_walk = 1\n')  # this analytically determines outward travel from high-τ cells
+    f.write('modified_random_walk = 1\n')  ## this analytically determines outward travel from high-τ cells
 
 ## Get wavelength information (for writing the stars.inp file)
 nlam=100
