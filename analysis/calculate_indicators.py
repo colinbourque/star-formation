@@ -38,5 +38,5 @@ for i in range(1,len(times)+1):
 
 with open(f'lbol_tbol_model{modelnumber:02n}.tab', 'w+') as f:
     f.write(f'Model Time \t L_bol (L_sol) \t T_bol (K) \n')
-    for i in range(17):
+    for i in range(1,len(times))):
         f.write(f'{1e6*times[i]:.6e} \t {lbols[i]:.6e} \t {tbols[i]:.6e} \n')
