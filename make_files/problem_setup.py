@@ -192,18 +192,27 @@ for i in range(1,len(mpars[0])):
         break
         
     ## Make the accretion disk
-    zz = rr*np.cos(tt)
-    ss = np.sqrt(rr**2 - zz**2)
-    Hs = H0*(ss/s0)**beta
-    rhod = rho0 * (ss/s0)**(-alpha) * np.exp(-0.5*(zz/Hs)**2)
+    if not mdisk == 0:
+        zz = rr*np.cos(tt)
+        ss = np.sqrt(rr**2 - zz**2)
+        Hs = H0*(ss/s0)**beta
+        rhod = rho0 * (ss/s0)**(-alpha) * np.exp(-0.5*(zz/Hs)**2)
+
+        rhod   = np.where(ss <= rdisk_out*au, rhod, 0) ## if not within disk bounds, rho -> 0
+
+        temp_disk_mass = np.sum(rhod*cv)/ms   ## get current mass of disk (meaningless)
+        rhod *= mdisk / temp_disk_mass  ## rescale to match hydro-determined disk mass
     
-    temp_disk_mass = np.sum(rhod*cv)/ms   ## get current mass of disk (meaningless)
-    rhod *= mdisk / temp_disk_mass  ## rescale to match hydro-determined disk mass
+    elif mdisk == 0: 
+        rhod = np.full((nr, nt), 0)
     
     
     ## Now make the core density profile
     rhoenv, u_r, y_tsc, x_tsc, tau_tsc = make_cdp(rr=rr, tt=tt, Omega_0=Omega_0, 
                                                   modeltime=time_mt0, Delta_Q=Delta_Q, c_s=c_s)
+    
+    rhoenv = np.where(rr >= renv_in*au, rhoenv, 0) ## if not within core bounds, rho -> 0
+    
     temp_core_mass = np.sum(rhoenv*cv)/ms ## get current mass of core (meaningless)
     rhoenv *= menv / temp_core_mass       ## rescale to match hydro-determined core mass
     
@@ -212,8 +221,8 @@ for i in range(1,len(mpars[0])):
         v_collapse = u_r[nr-1,int(nt/2)]
     
     ## Combine the density profiles in their respective regions
-    rhod   = np.where(rr <= rdisk_out*au, rhod, 0) ## if not within disk bounds, rho -> 0
-    rhoenv = np.where(rr >= renv_in*au, rhoenv, 0) ## if not within core bounds, rho -> 0
+    # rhod   = np.where(rr <= rdisk_out*au, rhod, 0) ## if not within disk bounds, rho -> 0
+    # rhoenv = np.where(rr >= renv_in*au, rhoenv, 0) ## if not within core bounds, rho -> 0
     rho = np.maximum(rhoenv, rhod)                      ## cell takes whichever density is greater
     
     rho *= (1/100)
