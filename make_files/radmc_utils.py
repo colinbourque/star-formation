@@ -153,31 +153,31 @@ def make_cdp(rr, tt, Omega_0, modeltime, Delta_Q=-3.52e-4, c_s = 18800.0):
             elif y_dd[6] <= y_tsc[i,j] <= y_dd[743]:
                 alpha_0_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(alpha0_dd[6:744]))
                 alpha_M_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(alphaM_dd[6:744]))
-                alpha_Q_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(alphaQ_dd[6:744]))
-                V_0_tsc[i,j] =  -10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(-V0_dd[6:744]))
+                alpha_Q_tsc[i,j] =  -1.*10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(alphaQ_dd[6:744]))
+                V_0_tsc[i,j] =  -1.*10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(-V0_dd[6:744]))
                 V_M_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(VM_dd[6:744]))
-                V_Q_tsc[i,j] =  -10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(VQ_dd[6:744]))
+                V_Q_tsc[i,j] =  -1.*10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(VQ_dd[6:744]))
 
             elif y_dd[743] < y_tsc[i,j] < y_dd[744]:
                 alpha_0_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(alpha0_dd[6:744]))
                 alpha_M_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(alphaM_dd[6:744]))
-                alpha_Q_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(alphaQ_dd[6:744]))
-                V_0_tsc[i,j] =  -10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(-V0_dd[6:744]))
+                alpha_Q_tsc[i,j] =  -1.*10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(alphaQ_dd[6:744]))
+                V_0_tsc[i,j] =  -1.*10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(-V0_dd[6:744]))
                 V_M_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[6:744]), np.log10(VM_dd[6:744]))
                 V_Q_tsc[i,j] =  0
 
             elif y_dd[743] <= y_tsc[i,j] <= 1.:
                 alpha_0_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(alpha0_dd[744:]))
                 alpha_M_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(alphaM_dd[744:]))
-                alpha_Q_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(alphaQ_dd[744:]))
-                V_0_tsc[i,j] =  -10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:764]), np.log10(-V0_dd[744:764]))
+                alpha_Q_tsc[i,j] =  -1.*10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(alphaQ_dd[744:]))
+                V_0_tsc[i,j] =  -1.*10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:764]), np.log10(-V0_dd[744:764]))
                 V_M_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:764]), np.log10(VM_dd[744:764]))
                 V_Q_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(-VQ_dd[744:]))
 
             elif 1. < y_tsc[i,j] <= np.max(y_dd):
                 alpha_0_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(alpha0_dd[744:]))
                 alpha_M_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(alphaM_dd[744:]))
-                alpha_Q_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(alphaQ_dd[744:]))
+                alpha_Q_tsc[i,j] =  -1.*10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(alphaQ_dd[744:]))
                 V_0_tsc[i,j] =  0
                 V_M_tsc[i,j] =  0
                 V_Q_tsc[i,j] =  10**np.interp(np.log10(y_tsc[i,j]), np.log10(y_dd[744:]), np.log10(-VQ_dd[744:]))
@@ -185,10 +185,11 @@ def make_cdp(rr, tt, Omega_0, modeltime, Delta_Q=-3.52e-4, c_s = 18800.0):
             elif y_tsc[i,j] > np.max(y_dd):
                 alpha_0_tsc[i,j] = extrap(y_tsc[i,j], y_dd[744:], alpha0_dd[744:])
                 alpha_M_tsc[i,j] = extrap(y_tsc[i,j], y_dd[744:], alphaM_dd[744:])
-                alpha_Q_tsc[i,j] = extrap(y_tsc[i,j], y_dd[744:], alphaQ_dd[744:])
+                alpha_Q_tsc[i,j] = -1.*extrap(y_tsc[i,j], y_dd[744:], alphaQ_dd[744:])
                 V_0_tsc[i,j] =  0
                 V_M_tsc[i,j] =  0
                 V_Q_tsc[i,j] = 1.*extrap(y_tsc[i,j], y_dd[744:], -VQ_dd[744:])
+
 
     u_r = c_s*( V_0_tsc + ( (tau_tsc**2.) * (V_M_tsc + (V_Q_tsc*p2) ) ) )
 
@@ -298,9 +299,9 @@ def trapezoid(x,f):
         return 'BAD FUNCTIONS'
     else:
         runsum = 0
-        for i in range(1,len(nu)):
-            dx = nu[i]-nu[i-1]
-            py = fnu[i]+fnu[i-1]
+        for i in range(1,len(x)):
+            dx = x[i]-x[i-1]
+            py = f[i]+f[i-1]
             runsum += 0.5*dx*py
         return runsum
 
