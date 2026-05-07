@@ -43,7 +43,7 @@ with open('frequency.inp') as f: ## read in the 2d frequencies grid
 
 frequencies = frequencies[2:]
 wavelengths = [(299792458000000)/float(freq) for freq in frequencies] ## convert to wavelengths
-with open(f'{simdir}/AUX/wavelength_micron.inp','w+') as f: ## write out to control file
+with open(f'{simdir}/model{modelnumber:02n}/AUX/wavelength_micron.inp','w+') as f: ## write out to control file
     f.write('%d\n'%(len(wavelengths)))
     for value in wavelengths:
         f.write('%13.6e\n'%(value))
@@ -105,11 +105,11 @@ with open('dustopac_1.inp') as f: ## read the 2d control file
     opacs = f.readlines()
 absp = opacs[2:102]
 scat = opacs[102:]
-with open(f'aux/wavelength_micron.inp','r') as f: ## read the 2d wavelengths file
-    wavs = f.readlines()
+# with open(f'aux/wavelength_micron.inp','r') as f: ## read the 2d wavelengths file
+#     wavs = f.readlines()
 scat = [float(cap) for cap in scat]
 absp = [float(cap) for cap in absp]
-wavs = [float(wav) for wav in wavs[1:]]
+# wavs = [float(wav) for wav in wavs[1:]]
 with open(f'{simdir}/model{modelnumber:02n}/AUX/dustkappa_OH5.inp', 'w+') as f: ## write the new 3d control file
     f.write(f'2\n')
     f.write(f'100\n')
@@ -118,9 +118,9 @@ with open(f'{simdir}/model{modelnumber:02n}/AUX/dustkappa_OH5.inp', 'w+') as f: 
 
 ## Write the ISRF file
 ext_int = np.loadtxt('external_meanint.inp', skiprows=2).T
-with open(f'aux/wavelength_micron.inp','r') as f:
-    wavs = f.readlines()
-wavs = [float(wav) for wav in wavs[1:]]
+# with open(f'aux/wavelength_micron.inp','r') as f:
+#     wavs = f.readlines()
+# wavs = [float(wav) for wav in wavs[1:]]
 intens = ext_int[1]
 with open(f'{simdir}/model{modelnumber:02n}/AUX/external_source.inp', 'w+') as f:
     f.write(f'2\n')
