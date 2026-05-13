@@ -20,12 +20,12 @@ mdir   = f'{simdir}/model{modelnumber:02n}'
 mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1)
 mpars = mpars[~np.isnan(mpars).any(axis=1)].T ## remove entries with nan values
 
-times = mpars[0][1:]
+times = mpars[0]
 lbols = []
 tbols = []
 
 
-for i in range(1,len(times)+1):
+for i in range(1,len(mpars[0]):
     lb = []
     tb = []
     for inc in [5,15,25,35,45,55,65,75,85]:
