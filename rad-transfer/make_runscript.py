@@ -9,7 +9,7 @@ indir  = f'{mdir}/INPUT'
 outdir = f'{mdir}/OUTPUT'
 rundir = f'{mdir}/RUNDIR'
 
-mpars = np.loadtxt(f'/Users/colinbourque/astrophysics/star-formation/SIMULATIONS/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1)
+mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1)
 mpars = mpars[~np.isnan(mpars).any(axis=1)].T ## remove entries with nan values
 
 nthreads = 4
