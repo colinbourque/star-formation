@@ -53,9 +53,7 @@ Inside of /rad-transfer/ I have attached a Python script (make_runscript.py) whi
 
 >python runscript.py
 
-with the model number provided subsequently. 
-
-
+with the model number provided subsequently. This will generate a script runmodNN.sh inside of /RUNDIR/ which can then be run to make radmc3d compute all products for a given model.
 
 
 
