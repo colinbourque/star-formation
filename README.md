@@ -41,6 +41,7 @@ You will then be prompted for the model number you'd like to generate. As of rig
 Unfortunately, radmc3d is quite rigid in the naming conventions it expects for input files. As such, a secondary temporary directory, /RUNDIR/ is established for actually running the radiative transfer code. 
 
 For every timestep, the following must occur:   
+
 0. The auxillairy files are copied to RUNDIR
 1. stars.NNN.inp, amr_grid.NNN.inp, and dust_density.NNN.inp are copied to RUNDIR without the model number .NNN label.
 2. Thermal radiative transfer is computed, and the temperatures file is copied to /OUTPUT/
