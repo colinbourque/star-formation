@@ -40,6 +40,9 @@ star-formation/
 └── scripts/   
 └── model_parameters/   
 
+<img width="311" height="400" alt="Screenshot 2026-05-20 at 1 47 13 PM" src="https://github.com/user-attachments/assets/bb9d5f28-de62-4ce5-9767-376230785c4d" />
+
+
 Most scripts rely on directory pointings which are coded relative to /simdir/, via a variable $\texttt{simdir}$ which should be re-written to point towards whatever directory this is on the machine where the code is being run. The /star-formation/ directory is set up to match this repository, and its own pointings likely do not require modification.
 
 In order to begin a full model run, it is necessary to create a corresponding directory and subdirectories within /simdir/. While /simdir/ can be anything, as of right now this code is written to explicitly look for an internal structure which matches that shown above.
