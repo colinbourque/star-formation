@@ -19,26 +19,26 @@ Building the model data requires NumPy (>=1.26.4) and Astropy (>=6.0.1), and run
 
 This repository contains all of the scripts needed to generate input files, control radmc3d, and analyze outputs. For the actual handling of these input and output files, I operate in a separate directory which I will call /simdir/. This directory contains a copy of the model parameters tables, as well as folders for each model's respective input/output/analysis files. A visualization of this file structure is attached here:
 
-simdir/
-├── model_parameters/
-│   └── model_parameters_1.tbl
-└── model01/
-    ├── AUX
-    ├── INPUT
-    ├── RUNDIR
-    ├── OUTPUT
-    └── RESULTS
-star-formation/
-└── make_files/
-    ├── problem_setup.py
-    ├── radmc_utils.py
-    ├── dustopac_1.inp
-    ├── external_meanint.inp
-    ├── frequency.inp
-    └── grid.plt34.mod
-└── analysis/
-└── scripts/
-└── model_parameters/
+simdir/ \\
+├── model_parameters/ \\
+│   └── model_parameters_1.tbl \\
+└── model01/ \\
+    ├── AUX \\
+    ├── INPUT \\ 
+    ├── RUNDIR \\
+    ├── OUTPUT \\
+    └── RESULTS \\
+star-formation/ \\
+└── make_files/ \\
+    ├── problem_setup.py \\
+    ├── radmc_utils.py \\
+    ├── dustopac_1.inp \\
+    ├── external_meanint.inp \\
+    ├── frequency.inp \\
+    └── grid.plt34.mod \\
+└── analysis/ \\
+└── scripts/ \\
+└── model_parameters/ \\
 
 Most scripts rely on directory pointings which are coded relative to /simdir/, via a variable $\texttt{simdir}$ which should be re-written to point towards whatever directory this is on the machine where the code is being run. The /star-formation/ directory is set up to match this repository, and its own pointings likely do not require modification.
 
