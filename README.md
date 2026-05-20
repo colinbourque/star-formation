@@ -17,28 +17,7 @@ Building the model data requires NumPy (>=1.26.4) and Astropy (>=6.0.1), and run
 
 #### Directory structure
 
-This repository contains all of the scripts needed to generate input files, control radmc3d, and analyze outputs. For the actual handling of these input and output files, I operate in a separate directory which I will call /simdir/. This directory contains a copy of the model parameters tables, as well as folders for each model's respective input/output/analysis files. A visualization of this file structure is attached here:
-
-simdir/   
-├── model_parameters/   
-│   └── model_parameters_1.tbl   
-└── model01/   
-    ├── AUX   
-    ├── INPUT   
-    ├── RUNDIR   
-    ├── OUTPUT   
-    └── RESULTS   
-star-formation/   
-└── make_files/   
-    ├── problem_setup.py   
-    ├── radmc_utils.py   
-    ├── dustopac_1.inp   
-    ├── external_meanint.inp   
-    ├── frequency.inp   
-    └── grid.plt34.mod   
-└── analysis/   
-└── scripts/   
-└── model_parameters/   
+This repository contains all of the scripts needed to generate input files, control radmc3d, and analyze outputs. For the actual handling of these input and output files, I operate in a separate directory which I will call /simdir/. This directory contains a copy of the model parameters tables, as well as folders for each model's respective input/output/analysis files. A visualization of this file structure is attached here: 
 
 <img width="311" height="400" alt="Screenshot 2026-05-20 at 1 47 13 PM" src="https://github.com/user-attachments/assets/bb9d5f28-de62-4ce5-9767-376230785c4d" />
 
