@@ -7,6 +7,8 @@ Files, scripts, and assorted data used in the radiative transfer star formation 
 
 /model_parameters/ contains files describing the inputs to the simulations
 
+/rad-transfer/ contains scripts used for simplifying the process of actually running radmc3d
+
 /scripts/ is currently only in use for passing .sh files back and forth between my local machine and the computational tower, since it is easier for me to generate them locally.
 
 ## Running the code
@@ -47,7 +49,7 @@ For every timestep, the following must occur:
 5. The ISRF photons are turned back on (a new external_source.inp is copied over from AUX)
 6. Step up in model number and repeat beginning with step 1.
 
-Inside of /scripts/ I have attached a Python script (runscript.py) which will generate a file (runmodNN.sh) in /RUNDIR/ that can be used to run this process in bulk. Again, presuming /simdir/ is set correctly, this script can be run as
+Inside of /rad-transfer/ I have attached a Python script (make_runscript.py) which will generate a file (runmodNN.sh) in /RUNDIR/ that can be used to run this process in bulk. Again, presuming /simdir/ is set correctly, this script can be run as
 
 >python runscript.py
 
