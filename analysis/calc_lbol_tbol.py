@@ -20,7 +20,8 @@ mdir   = f'{simdir}/model{modelnumber:02n}'
 mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1)
 mpars = mpars[~np.isnan(mpars).any(axis=1)].T ## remove entries with nan values
 
-times = mpars[0]
+times = mpars[0][1:]
+deltime = mpars[1][1:]
 lbols = []
 tbols = []
 
@@ -41,10 +42,10 @@ for i in range(1,len(mpars[0])):
 
 with open(f'lbols_model{modelnumber:02n}.tab', 'w+') as f:
     f.write(f'Model Time \t 5deg L_bol (L_sol) \t 15 \t 25 \t 35 \t 45 \t 55 \t 65 \t 75 \t 85 \n')
-    for i in range(1,len(times)):
+    for i in range(len(times)):
         f.write(f'{1e6*times[i]:.6e} \t {lbols[i][0]:.6e} \t {lbols[i][1]:.6e} \t {lbols[i][2]:.6e} \t {lbols[i][3]:.6e} \t {lbols[i][4]:.6e} \t {lbols[i][5]:.6e} \t {lbols[i][6]:.6e} \t {lbols[i][7]:.6e} \t {lbols[i][8]:.6e} \n')
 
 with open(f'tbols_model{modelnumber:02n}.tab', 'w+') as f:
-    f.write(f'Model Time \t 5deg T_bol (K) \t 15 \t 25 \t 35 \t 45 \t 55 \t 65 \t 75 \t 85 \n')
-    for i in range(1,len(times)):
-        f.write(f'{1e6*times[i]:.6e} \t {tbols[i][0]:.6e} \t {tbols[i][1]:.6e} \t {tbols[i][2]:.6e} \t {tbols[i][3]:.6e} \t {tbols[i][4]:.6e} \t {tbols[i][5]:.6e} \t {tbols[i][6]:.6e} \t {tbols[i][7]:.6e} \t {tbols[i][8]:.6e} \n')
+    f.write(f'Time (Myr) \t Time-t0 (yr) \t 5deg T_bol (K) \t 15 \t 25 \t 35 \t 45 \t 55 \t 65 \t 75 \t 85 \n')
+    for i in range(len(times)):
+        f.write(f'{times[i]:.6e} \t {deltime:.6e} \t {tbols[i][0]:.6e} \t {tbols[i][1]:.6e} \t {tbols[i][2]:.6e} \t {tbols[i][3]:.6e} \t {tbols[i][4]:.6e} \t {tbols[i][5]:.6e} \t {tbols[i][6]:.6e} \t {tbols[i][7]:.6e} \t {tbols[i][8]:.6e} \n')
