@@ -25,7 +25,7 @@ lbols = []
 tbols = []
 
 
-for i in range(1,len(mpars[0]):
+for i in range(1,len(mpars[0])):
     lb = []
     tb = []
     for inc in [5,15,25,35,45,55,65,75,85]:
