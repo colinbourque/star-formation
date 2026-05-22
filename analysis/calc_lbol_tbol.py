@@ -29,7 +29,7 @@ for i in range(1,len(mpars[0])):
     lb = []
     tb = []
     for inc in [5,15,25,35,45,55,65,75,85]:
-        intext   = np.loadtxt(f'{mdir}/OUTPUT/INTEXT/spectrum.{i:03n}.incl{inc:02n}.out', skiprows=2).T
+        intext   = np.loadtxt(f'{mdir}/OUTPUT/spectrum.{i:03n}.incl{inc:02n}.out', skiprows=2).T
         spec     = intext[1]
         nu       = 1e4*cc/intext[0]
 
