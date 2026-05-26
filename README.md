@@ -1,5 +1,5 @@
 # star-formation
-Files, scripts, and assorted data used in the radiative transfer star formation modeling project. For all functions pertaining to the generation of a model, and mathematical analysis, the only dependencies are NumPy as Astropy. Plotting, if any scripts for that end up being posted here, is all built around Matplotlib.
+Files, scripts, and assorted data used in the radiative transfer star formation modeling project. For all functions pertaining to the generation of a model, and mathematical analysis, the only dependencies are NumPy and Astropy. Plotting, if any scripts for that end up being posted here, is all built around Matplotlib.
 
 /make_files/ contains files needed for generating runs of radmc3d, including the underlying physical dust density profiles and simulation grids. .inp type files in the main directory here are inhereted from the 2d run of the code. These are then handled by the .py files and turned into radmc3d compatible input files, which are stored in /make_files/aux/  
 
