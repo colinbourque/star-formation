@@ -3,7 +3,8 @@ import numpy as np
 print(f'Make sure variable simdir is set correctly.')
 modelnumber = input('Generate run script for model number...')
 
-mdir   = f'/Users/cbourque/astrophysics/star-formation/SIMULATIONS/model{modelnumber:02n}'
+simdir = '/Users/cbourque/astrophysics/star-formation/SIMULATIONS'
+mdir   = f'{simdir}/model{modelnumber:02n}'
 auxdir = f'{mdir}/AUX'
 indir  = f'{mdir}/INPUT'
 outdir = f'{mdir}/OUTPUT'
