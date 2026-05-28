@@ -27,7 +27,7 @@ while get_modelnum:
 print(f'Generating input files for model{modelnumber:02n}')
 
 ## write the radmc3d.inp control file
-nphot = 10000000
+nphot = 100000000
 
 with open(f'{simdir}/model{modelnumber:02n}/AUX/radmc3d.inp','w+') as f:
     f.write('nphot = %d\n'%(nphot))
