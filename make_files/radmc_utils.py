@@ -313,3 +313,49 @@ def bol_temperature(nu,fnu): ## calculates bolometric temperature (and confuses 
 
 def bbody_lum(r, temp):
     return 4*np.pi*((r*rs)**2)*ssb*(temp**4)/ls
+
+def load_amr_grid(filename, nr, nt):
+    with open(filename, 'r') as f4:
+        liness = f4.readlines()
+        r_3d = liness[6:nr+7]
+        t_3d = liness[nr+7:nr+nt+8]
+
+    r_3d = [line.replace('\n','') for line in r_3d]
+    r_3d = np.array(r_3d)
+    r_3d = r_3d.astype('float')
+
+    t_3d = [line.replace('\n','') for line in t_3d]
+    t_3d = np.array(t_3d)
+    t_3d = t_3d.astype('float')
+    # rr, tt = np.meshgrid(r_3d, t_3d, indexing='ij')
+    return np.meshgrid(r_3d, t_3d, indexing='ij')
+
+def load_dusttemps(filename, nr, nt):
+    temps_3d = np.zeros((nr,nt))
+    with open(filename, 'r') as f5:
+        lines = f5.readlines()
+        dflat = lines[3:]
+
+    dflat = np.array(dflat)
+    dflat = dflat.astype('float')
+
+    for i in range(nr):
+        for j in range(nt):
+            temps_3d[i,j] = dflat[i + nr*j]
+
+    return temps_3d
+
+def load_dustdens(filename, nr, nt):
+    dens_3d = np.zeros((nr,nt))
+    with open(filename, 'r') as f5:
+        lines = f5.readlines()
+        dflat = lines[3:]
+
+    dflat = np.array(dflat)
+    dflat = dflat.astype('float')
+
+    for i in range(nr):
+        for j in range(nt):
+            dens_3d[i,j] = dflat[i + nr*j]
+
+    return dens_3d
