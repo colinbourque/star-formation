@@ -56,7 +56,14 @@ Inside of /rad-transfer/ I have attached a Python script (make_runscript.py) whi
 
 with the model number provided subsequently. This will generate a script runmodNN.sh inside of /RUNDIR/ which can then be run to make radmc3d compute all products for a given model.
 
+As an alternative method for generating more complex configurations of runscripts, a notebook `/scripts/runscript.ipynb` is also included. Here, an argument for number of partitions can be set (in addition to the standard `simdir` and `nthreads`). This will create multiple `runmodNN-P.sh` scripts containing commands to run \[number of timesteps\]//p timesteps, labeled "A" through \["A", "B", "C", ...]\[P\]. <ins>Each partition</ins> will use `nthreads` cores, meaning to run all partitions simtaneously, at least nthreads*P cores should be available.
 
+#### Getting bolometric temperatures and luminosities
 
+Bolometric temperatures and luminosities are calculated by integrating the output spectrum from `radmc3d` (using function `trapezoid()`. Functions `bol_luminosity(nu, fnu)` and `bol_temperature(nu, fnu)` are included in `radmc_utils.py`, and return values in units of $L_\odot$ at 1 PC, and K, respectively.
 
+For convenience, a script `calc_lbol_tbol.py` is included in `/analysis/`. Pre-requisites for running this script are to ensure that `simdir` is set correctly, and that this script has access to `radmc_utils.py`. The easiest way to achieve this latter pre-requisite is by just copying one or the other into the same folder (the difficult way would be to turn `radmc_utils.py` into a package and install it to your working environment). Presuming steps are set, then running 
 
+>python get_lbol_tbol.py
+
+will prompt for a model number, and, when provided one, will create two files `lbols_modelNN.tab` and `tbols_modelNN.tab` in directory `./indicators/`. Both of these tables are structures to contain the time in Myr, $\Delta$ time in yr, and then eight columns of indicators progressing from $5\degree$ indlication to $85\degree$. These labels are written into a header row, as well.
