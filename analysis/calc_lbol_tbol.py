@@ -17,8 +17,15 @@ print(f'Calculating Lbol, Tbol for model{modelnumber:02n}')
 
 mdir   = f'{simdir}/model{modelnumber:02n}'
 
+# mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1)
+# mpars = mpars[~np.isnan(mpars).any(axis=1)].T ## remove entries with nan values
 mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1)
-mpars = mpars[~np.isnan(mpars).any(axis=1)].T ## remove entries with nan values
+emptyrow = np.zeros(len(mpars[0])) ## prepare a dummy row to replace t-t0=0 iff any NaN
+if np.isnan(mpars[0]).any():       ## if timestep 0 will be double-skipped...
+    mpars = mpars[~np.isnan(mpars).any(axis=1)] 
+    mpars = np.vstack([emptyrow, mpars]).T ## then replace it with a row that *can* be skipped anyways
+else:                              
+    mpars = mpars[~np.isnan(mpars).any(axis=1)].T
 
 times = mpars[0][1:]
 deltime = mpars[1][1:]
