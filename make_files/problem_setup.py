@@ -150,8 +150,16 @@ alpha = 2.25
 rho0 = 1e-16
 
 #### CREATE INPUT DATA
+# mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1)
+# mpars = mpars[~np.isnan(mpars).any(axis=1)].T ## remove entries with nan values
+
 mpars = np.loadtxt(f'{simdir}/model_parameters/model_parameters_{modelnumber}.tbl', skiprows=1)
-mpars = mpars[~np.isnan(mpars).any(axis=1)].T ## remove entries with nan values
+emptyrow = np.zeros(len(mpars[0])) ## prepare a dummy row to replace t-t0=0 iff any NaN
+if np.isnan(mpars[0]).any():       ## if timestep 0 will be double-skipped...
+    mpars = mpars[~np.isnan(mpars).any(axis=1)] 
+    mpars = np.vstack([emptyrow, mpars]).T ## then replace it with a row that *can* be skipped anyways
+else:                              
+    mpars = mpars[~np.isnan(mpars).any(axis=1)].T
 
 v_collapse = 0
 r_out = np.max([mpars[7][0], mpars[10][0]])*au ## starts the outer radius as being the greater of the disk or core
