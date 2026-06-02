@@ -162,7 +162,7 @@ else:
     mpars = mpars[~np.isnan(mpars).any(axis=1)].T
 
 v_collapse = 0
-r_out = np.max([mpars[7][0], mpars[10][0]])*au ## starts the outer radius as being the greater of the disk or core
+r_out = np.max([mpars[7][1], mpars[10][1]])*au ## starts the outer radius as being the greater of the disk or core
 
 for i in range(1,len(mpars[0])):
     ## get specific values for this model step
