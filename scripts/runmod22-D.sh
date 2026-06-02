@@ -2048,5 +2048,33 @@ radmc3d sed incl 75 useapert dpc 140 setthreads 4
 mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.295.incl75.out 
 radmc3d sed incl 85 useapert dpc 140 setthreads 4
 mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.295.incl85.out 
+echo --------------------------------------------------------- 
+echo BEGIN MODEL STEP 296 
+echo --------------------------------------------------------- 
+cp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/INPUT/stars.296.inp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/stars.inp 
+cp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/INPUT/amr_grid.296.inp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/amr_grid.inp 
+cp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/INPUT/dust_density.296.inp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/dust_density.inp 
+cp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/AUX/external_source.inp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/external_source.inp 
+radmc3d mctherm setthreads 4 countwrite 1000000 
+cp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/dust_temperature.dat /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/dust_temperature.296.dat 
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/external_source.inp /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/no_external_source.inp 
+radmc3d sed incl 5 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl05.out 
+radmc3d sed incl 15 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl15.out 
+radmc3d sed incl 25 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl25.out 
+radmc3d sed incl 35 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl35.out 
+radmc3d sed incl 45 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl45.out 
+radmc3d sed incl 55 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl55.out 
+radmc3d sed incl 65 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl65.out 
+radmc3d sed incl 75 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl75.out 
+radmc3d sed incl 85 useapert dpc 140 setthreads 4
+mv /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/RUNDIR-D/spectrum.out /Users/cbourque/astrophysics/star-formation/SIMULATIONS/model22/OUTPUT/spectrum.296.incl85.out 
 echo STARTED AT $STARTTIME 
 echo ENDED AT $(date) 
