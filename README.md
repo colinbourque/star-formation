@@ -1,15 +1,17 @@
 # star-formation
-Files, scripts, and assorted data used in the radiative transfer star formation modeling project. For all functions pertaining to the generation of a model, and mathematical analysis, the only dependencies are NumPy and Astropy. Plotting, if any scripts for that end up being posted here, is all built around Matplotlib.
+Files, scripts, and assorted data used in the radiative transfer star formation modeling project. For all functions pertaining to the generation of a model, and mathematical analysis, the only dependencies are `NumPy` and `Astropy`. Plotting, if any scripts for that end up being posted here, is all built around `Matplotlib`.
 
-/make_files/ contains files needed for generating runs of radmc3d, including the underlying physical dust density profiles and simulation grids. .inp type files in the main directory here are inhereted from the 2d run of the code. These are then handled by the .py files and turned into radmc3d compatible input files, which are stored in /make_files/aux/  
+`/make_files/` contains files needed for generating runs of `radmc3d`, including the underlying physical dust density profiles and simulation grids. `.inp` type files in the main directory here are inhereted from the 2d run of the code. These are then handled by the `.py` files and turned into `radmc3d` compatible input files, which are stored in each respective model's `/simdir/AUX/` directory.  
 
-/analysis/ contains script(s) for interpreting the outputs of radmc3d
+`/analysis/` contains script(s) for interpreting the outputs of `radmc3d`
 
-/model_parameters/ contains files describing the inputs to the simulations
+`/model_parameters/` contains files describing the inputs to the simulations
 
-/rad-transfer/ contains scripts used for simplifying the process of actually running radmc3d
+`/rad-transfer/` contains scripts used for simplifying the process of actually running radmc3d
 
-/scripts/ is currently only in use for passing .sh files back and forth between my local machine and the computational tower, since it is easier for me to generate them locally.
+`/scripts/` is currently only in use for passing .sh files back and forth between my local machine and the computational tower, since it is easier for me to generate them locally.
+
+`/INDICATORS/` contains compiled results from each model run, both bolometric luminosity and temperature tables, and figures comparing the 2D results to the 3D results.
 
 ## Running the code
 
@@ -62,7 +64,7 @@ As an alternative method for generating more complex configurations of runscript
 
 Bolometric temperatures and luminosities are calculated by integrating the output spectrum from `radmc3d` (using function `trapezoid()`. Functions `bol_luminosity(nu, fnu)` and `bol_temperature(nu, fnu)` are included in `radmc_utils.py`, and return values in units of $L_\odot$ at 1 PC, and K, respectively.
 
-For convenience, a script `calc_lbol_tbol.py` is included in `/analysis/`. Pre-requisites for running this script are to ensure that `simdir` is set correctly, and that this script has access to `radmc_utils.py`. The easiest way to achieve this latter pre-requisite is by just copying one or the other into the same folder (the difficult way would be to turn `radmc_utils.py` into a package and install it to your working environment). Presuming steps are set, then running 
+For convenience, a script `calc_lbol_tbol.py` is included in `/analysis/`. Pre-requisites for running this script are to ensure that `simdir` is set correctly, and that this script has access to `radmc_utils.py`. The easiest way to achieve this latter pre-requisite is by just copying one or the other into the same folder (the difficult way would be to turn `radmc_utils.py` into a package and install it to your working environment). Presuming this is all set, then running 
 
 >python get_lbol_tbol.py
 
