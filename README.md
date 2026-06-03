@@ -13,6 +13,10 @@ Files, scripts, and assorted data used in the radiative transfer star formation 
 
 `/INDICATORS/` contains compiled results from each model run, both bolometric luminosity and temperature tables, and figures comparing the 2D results to the 3D results.
 
+## More detailed documentation
+
+The remainder of the `readme` file contains a cursory explanation of how the code is meant to be run. For a more detailed explanation of the physical workings of the code please see the attached document `star-formation-docs-v2.pdf`.
+
 ## Running the code
 
 #### Pre-requisites
